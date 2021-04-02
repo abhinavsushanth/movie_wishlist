@@ -1,0 +1,26 @@
+<%- include("partials/header"); -%>
+        <h1><% if(editing){ %>Edit Movie<% } else { %>Add Movie<% } %></h1>
+
+        <form method="POST" action="/<% if(editing){ %>edit-movie<% } else { %>add-movie<% } %>">
+            <div>
+                <label>Name</label>
+                <input type="text" name="name" value="<% if(editing){ %><%= movie.name %><% } %>" required />
+            </div>
+            <div>
+                <label>Image</label>
+                <input type="text" name="image" value="<% if(editing){ %><%= movie.image %><% } %>" required />
+            </div>
+            <div>
+                <label>Description</label>
+                <input type="text" name="description" value="<% if(editing){ %><%= movie.description %><% } %>" required />
+            </div>
+            <% if(editing){ %>
+            <div>
+                <input type="hidden" name="movieId" value="<%= movie.id %>" />
+            </div>
+            <% } %>
+            <div>
+                <button type="submit"><% if(editing){ %>Edit Movie<% } else { %>Add Movie<% } %></button>
+            </div>
+        </form>
+<%- include("partials/footer"); -%>

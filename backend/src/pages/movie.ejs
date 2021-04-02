@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Movie</title>
+    </head>
+    <body>
+        <h1>More about the movie</h1>
+
+        <main>
+            <h1><%= movie.name %></h1>
+            <img src="<%= movie.image %>" alt="<%= movie.name %>" />
+            <p><%= movie.description %></p>
+            
+            <div>
+                <form method="POST" action="/delete">
+                    <div>
+                        <input type="hidden" value="<%= movie.id %>" name="movieId" />
+                        <button>Delete</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <a href="/edit-movie/<%= movie.id %>?edit=true">Edit</a>
+            </div>
+        </main>
+    </body>
+</html>
